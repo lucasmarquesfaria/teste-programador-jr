@@ -4,7 +4,7 @@
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/sistema-tarefas.git
+git clone https://github.com/lucasmarquesfaria/sistema-tarefas
 cd sistema-tarefas
 ```
 
