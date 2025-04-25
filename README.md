@@ -1,5 +1,19 @@
 # Sistema de Gerenciamento de Tarefas
 
+### FrontEnd
+Node.js 16.0 ou mais atual
+Vue.js 3 (o framework principal que usamos)
+Vue Router (para navegação entre páginas)
+Axios (para comunicação com o servidor)
+Bootstrap (para os estilos e componentes visuais)
+Font Awesome (para os ícones bonitos)
+Um navegador moderno (Chrome, Firefox ou Edge)
+
+### Para o backend
+PHP 8.1 ou mais recente
+Laravel (o framework que usamos)
+JWT para autenticação (login seguro)
+SQLite, MySQL ou PostgreSQL para o banco de dados
 
 ### 1. Clone o repositório
 
@@ -54,15 +68,3 @@ npm run dev
 # ou se preferir usar Yarn
 # yarn dev
 ```
-
-O frontend estará disponível em: http://localhost:5173
-
-## Configurações Adicionais
-
-### Configuração do JWT (JSON Web Tokens)
-
-O sistema utiliza JWT para autenticação. A chave secreta para assinatura dos tokens está configurada no arquivo `AuthController.php`. Em um ambiente de produção, você deve alterar essa chave e configurá-la através de variáveis de ambiente.
-
-```php
-// Em backend/app/Http/Controllers/AuthController.php
-private $key = 'your-secret-key'; // Altere para uma chave segura
