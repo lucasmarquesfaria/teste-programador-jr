@@ -1,7 +1,6 @@
 # Sistema de Gerenciamento de Tarefas
 
 
-
 ### 1. Clone o repositório
 
 ```bash
