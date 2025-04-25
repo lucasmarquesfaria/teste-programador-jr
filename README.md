@@ -58,4 +58,4 @@ cd frontend
 # Instale as dependências do JavaScript
 npm install
 # ou se preferir usar Yarn
-# yarn
+# yarn.
