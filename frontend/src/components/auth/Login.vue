@@ -25,12 +25,12 @@ const marcarTocado = (campo) => {
 const validacoes = {
   email: (valor) => {
     if (!valor) return 'O email é obrigatório'
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor)) return 'Formato de email inválido'
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor)) return 'Formato de email inválido'    // validação email 
     return ''
   },
   senha: (valor) => {
     if (!valor) return 'A senha é obrigatória'
-    if (valor.length < 6) return 'A senha deve ter pelo menos 6 caracteres'
+    if (valor.length < 6) return 'A senha deve ter pelo menos 6 caracteres'   // validação senha quant. caracteres
     return ''
   }
 }

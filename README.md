@@ -59,12 +59,3 @@ cd frontend
 npm install
 # ou se preferir usar Yarn
 # yarn
-
-# Configure o arquivo .env para apontar para a API
-echo "VITE_API_URL=http://localhost:8000/api" > .env
-
-# Inicie o servidor de desenvolvimento
-npm run dev
-# ou se preferir usar Yarn
-# yarn dev
-```

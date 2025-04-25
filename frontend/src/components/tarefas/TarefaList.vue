@@ -2,18 +2,6 @@
 import { ref } from 'vue'
 import TarefaModal from './TarefaModal.vue'
 
-/**
- * INTEGRAÇÃO COM BACKEND LARAVEL
- * ------------------------------
- * Para adaptar este componente ao backend Laravel:
- * 
- * 1. Verifique se os nomes dos campos das tarefas correspondem ao formato retornado pela API Laravel
- *    - Pode ser necessário adaptar: data_criacao → created_at, data_atualizacao → updated_at
- *    - O formato de status pode precisar ser adaptado: pendente/concluída → pending/completed 
- * 2. Se a API Laravel retornar dados paginados, você pode precisar implementar a navegação entre páginas
- * 3. Ao exibir ou manipular datas, lembre-se que o Laravel retorna datas no formato ISO
- */
-
 const props = defineProps({
   tarefas: {
     type: Array,
@@ -28,13 +16,6 @@ const mostrarModal = ref(false)
 const tarefaAtual = ref(null)
 const modoEdicao = ref(false)
 
-/**
- * Formata uma data para exibição
- * 
- * INTEGRAÇÃO LARAVEL:
- * As datas no Laravel geralmente vêm no formato ISO (ex: "2023-04-15T14:30:45.000000Z")
- * Você pode precisar adaptar esta função para lidar com o formato de data do Laravel
- */
 const formatarData = (dataString) => {
   if (!dataString) return '-';
   
@@ -85,8 +66,6 @@ const abrirModalAdicionar = () => {
     titulo: '',
     descricao: '',
     status: 'pendente'
-    // INTEGRAÇÃO LARAVEL: Você pode precisar ajustar o valor padrão 
-    // para o formato que o Laravel espera (ex: 'pending')
   }
   modoEdicao.value = false
   mostrarModal.value = true
@@ -94,8 +73,6 @@ const abrirModalAdicionar = () => {
 
 // Prepara os dados para editar uma tarefa existente
 const abrirModalEditar = (tarefa) => {
-  // INTEGRAÇÃO LARAVEL: Você pode precisar mapear os campos do Laravel
-  // para o formato esperado pelo seu frontend
   tarefaAtual.value = { ...tarefa }
   modoEdicao.value = true
   mostrarModal.value = true
@@ -183,16 +160,6 @@ const toggleSelecionarTodas = (event) => {
           </tr>
         </thead>
         <tbody>
-          <!-- 
-            INTEGRAÇÃO LARAVEL:
-            1. Verifique se os campos correspondem ao modelo retornado pelo Laravel
-            2. Você pode precisar adaptar as propriedades:
-               - titulo → title
-               - descricao → description
-               - status → status (pode precisar de conversão de valor)
-               - data_criacao → created_at
-               - data_atualizacao → updated_at
-          -->
           <tr v-for="tarefa in tarefas" :key="tarefa.id" :class="{ 'completed': tarefa.status === 'concluída' }">
             <td class="check-column">
               <input 
@@ -215,7 +182,6 @@ const toggleSelecionarTodas = (event) => {
                   <i class="fa-solid fa-edit"></i>
                 </button>
                 <button class="delete-button" @click="excluirTarefa(tarefa.id)" title="Excluir">
-                  <!-- Ícone de lixeira com fallback para X -->
                   <span class="delete-icon">
                     <i class="fa-solid fa-trash-alt"></i>
                     <span class="delete-x">✕</span>

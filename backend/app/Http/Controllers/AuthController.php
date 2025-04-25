@@ -146,7 +146,7 @@ class AuthController extends Controller
             return response()->json(['error' => 'Token inválido ou expirado'], 401);
         }
     }
-
+                    // funcão de registro de usuário
     public function register(Request $request)
     {
         $request->validate([
